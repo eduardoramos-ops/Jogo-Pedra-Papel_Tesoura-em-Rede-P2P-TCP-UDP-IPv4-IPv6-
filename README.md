@@ -55,10 +55,10 @@ Concluído! Salve e use o código-fonte que estará na raiz do repositório para
 # Retorna o novo socket com Ip e protocolo 
     return socket.socket(familia, tipo)
 
-
+# Finalizamos o commmon, salve o arquivo com CLTR + S. Agora iremos para o main
 
 # Vamos a estrutura da nossa GUI (interface gráfica) do nosso projeto
-
+# Nós importamos do próprio python comandos e a biblioteca tkinter, sendo ela quem gera os widgets.
 
 ```import tkinter as tk # Importamos a biblioteca do python e para menos texto chamamos o módulo de tk 
 from tkinter import ttk # Importa do tkinter os wWdgets mais modernos
@@ -68,5 +68,4 @@ import time # Futuramente implementá-lo para fazer com que o código tenha paus
 from common import criar_socket  # Importa função para criar socket TCP/UDP
 ```
 
-# Nós importamos do próprio python comandos e a biblioteca tkinter, sendo ela quem gera os widgets.
 
