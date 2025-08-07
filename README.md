@@ -127,7 +127,7 @@ def input(self, texto, padrao):
         campo.insert(0, padrao)
         campo.pack()
         return campo
-```
+
 def combo(self, texto, opcoes):
 # Botão com label em menu de digitação
       
@@ -137,7 +137,7 @@ def combo(self, texto, opcoes):
         tk.OptionMenu(self.janela, var, *opcoes).pack()
         return var
 ```
-# !!! Nesta etapa preste muita atenção, trabalharemos o servidor/clinte
+# !!! Nesta etapa preste muita atenção, trabalharemos o servidor/cliente
 
 ```
 # Inicializando o servidor com um método
