@@ -119,11 +119,79 @@ def __init__(self, janela):
         tk.Button(self.janela, text="Servidor", command=self.iniciar_servidor).pack(pady=5)
         tk.Button(self.janela, text="Cliente", command=self.iniciar_cliente).pack(pady=5)
 ```
-# Configuração de 
+#Campos de entrada na janela
+
 def input(self, texto, padrao):
         tk.Label(self.janela, text=texto).pack()
         campo = tk.Entry(self.janela)
         campo.insert(0, padrao)
         campo.pack()
         return campo
+```
+def combo(self, texto, opcoes):
+# Botão com label em menu de digitação
+      
+        tk.Label(self.janela, text=texto).pack()
+        # Verificação de valores na lista sa StrinVar
+        var = tk.StringVar(value=opcoes[0])
+        tk.OptionMenu(self.janela, var, *opcoes).pack()
+        return var
+```
+# !!! Nesta etapa preste muita atenção, trabalharemos o servidor/clinte
 
+```
+# Inicializando o servidor com um método
+    def iniciar_servidor(self):
+        global soquete
+# Getter do ip digitado 
+        ip = self.ip.get()
+
+        # Receberá a entrada da porta no campo de porta 
+        porta = int(self.porta.get())
+
+        # Armazenando na variavel soquete o método criar_socket com valores digitados no campo
+        soquete = criar_socket(self.protocolo.get(), self.ipversao.get())
+        soquete.bind((ip, porta))
+        soquete.listen()
+        threading.Thread(target=self.aguardar_conexao, daemon=True).start()
+
+        # Mensagem para saber se deu certo ele está aguardando
+        self.info("Aguardando conexão...")
+
+# Chama-se esse método quando queremos que apareça essa mensagem caso o botão de serviodor seja clicado
+# Criando um camiho para a comunicaçõa do servidor para com o usuário
+    def aguardar_conexao(self):
+        
+        # Variavel global usada pelo servidor
+        global conexao
+        conexao, _ = soquete.accept()
+        self.mostrar_jogo()
+         # Linha de execução paralela as execuções ja concebidas com threading
+
+#Quando a threading pricipal encerrar essa encerra também(daemon tem essa função)
+# Pesquise a fucionalidade para que você entenda bem a estrutura do código
+        threading.Thread(target=self.receber_jogada_servidor, daemon=True).start()
+
+```
+# Iniciando o cliente com a mesma lógica do servidor
+
+```
+# Método para iniciar o cliente 
+    def iniciar_cliente(self):
+       
+        global soquete
+        ip = self.ip.get()
+        porta = int(self.porta.get())
+
+        # Mesma coisa aqui (armazenando na variavel soquete o método criar_socket) 
+        soquete = criar_socket(self.protocolo.get(), self.ipversao.get())
+        try:
+            soquete.connect((ip, porta))
+# Método posterior para mostar as jogadas tanto ao client e como ao servidor ao mesmo tempo
+            self.mostrar_jogo()
+#Quando a threading pricipal encerrar essa encerra também(daemon tem essa função)
+            threading.Thread(target=self.receber_jogada_cliente, daemon=True).start()
+# Como usamos as janelas, pode ocorer que sorbecaregue ajanela por isso usamos:
+  except Exception as e:
+# Com a implementação do try, qualquer erro é comunicado. 
+    self.janela.after(0, lambda: self.info(f"Erro: {e}")
