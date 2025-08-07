@@ -187,10 +187,11 @@ threading.Thread(target=self.receber_jogada_servidor, daemon=True).start()
         soquete = criar_socket(self.protocolo.get(), self.ipversao.get())
         try:
             soquete.connect((ip, porta))
-# Método posterior para mostar as jogadas tanto ao client e como ao servidor ao mesmo tempo
-            self.mostrar_jogo()
-#Quando a threading pricipal encerrar essa encerra também(daemon tem essa função)
-            threading.Thread(target=self.receber_jogada_cliente, daemon=True).start()
+# Método posterior para mostar as jogadas tanto ao cliente como ao servidor ao mesmo tempo
+ self.mostrar_jogo()
+ ```
+# Quando a threading pricipal encerrar essa encerra também(daemon tem essa função)
+ threading.Thread(target=self.receber_jogada_cliente, daemon=True).start()
 # Como usamos as janelas, pode ocorer que sorbecaregue ajanela por isso usamos:
   except Exception as e:
 # Com a implementação do try, qualquer erro é comunicado. 
