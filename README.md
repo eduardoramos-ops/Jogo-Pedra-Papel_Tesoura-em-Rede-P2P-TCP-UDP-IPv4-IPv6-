@@ -61,11 +61,34 @@ Concluído! Salve e use o código-fonte que estará na raiz do repositório para
 # Nós importamos do próprio python comandos e a biblioteca tkinter, sendo ela quem gera os widgets.
 
 ```import tkinter as tk # Importamos a biblioteca do python e para menos texto chamamos o módulo de tk 
-from tkinter import ttk # Importa do tkinter os wWdgets mais modernos
 import threading  # Otimiza o código para não ocorrer travamento
 import socket #  Importação do socket para criar as conexões de rede (Cliente/Servidor)
 import time # Futuramente implementá-lo para fazer com que o código tenha pausas
 from common import criar_socket  # Importa função para criar socket TCP/UDP
 ```
 
+# Vamos as variáveis.
+```Criamos variáveis globais, poid serão utilizadas por muitas partes do códigp
 
+# Variáveis globais
+# Nenhum nalor definido ainda, então o None indica isso. 
+soquete = None
+conexao = None
+jogada_local = jogada_oponente = ""
+placar = {"vitorias": 0, "derrotas": 0, "empates": 0}
+```
+# O primeiro método em seguida será o de criar o socket
+```
+def criar_socket(protocolo, ipversao):
+    familia = socket.AF_INET6 if ipversao == "IPv6" else socket.AF_INET
+    tipo = socket.SOCK_DGRAM if protocolo == "UDP" else socket.SOCK_STREAM
+    return socket.socket(familia, tipo)
+```
+# A classe molde dos métodos
+
+```
+# ==== Interface GUI ====
+# Uma classe que serve de molde para os métodos que criaremos
+class JokenpoApp:
+
+```
