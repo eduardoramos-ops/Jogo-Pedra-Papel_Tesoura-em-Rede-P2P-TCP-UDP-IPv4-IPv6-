@@ -207,7 +207,7 @@ def enviar_jogada(self, escolha):
             else:
              soquete.sendall(escolha.encode())
         except:
-            self.status.config(text="Erro ao enviar jogada.")
+           self.janela.after(0, lambda: self.status.config(text="Erro ao enviar jogada."))
 
 # Mostra as jogadas inseridas nos campos
 
@@ -251,3 +251,61 @@ def enviar_jogada(self, escolha):
         except:
             pass
 ```
+# Animação simples para o janela de jogadas
+```
+# Uma animação simples com index e
+    def animar(self):
+        sequencia = ["Pedra", "Papel", "Tesoura"] * 2
+        self.idx = 0
+        def passo():
+            if self.idx < 6:
+                self.animacao.config(text=sequencia[self.idx])
+                self.idx += 1
+                self.janela.after(300, passo)
+            else:
+                self.animacao.config(text="")
+                self.mostrar_resultado()
+        passo()
+```
+# Ver resultados obtidos pelos getters dos botões
+
+```
+ # Método para ver os resultados
+     # Utiliza aqui parâmetros que referenciam as jogadas e o self para organização
+    # Utiliza aqui parâmetros que referenciam as jogadas e o self para organização
+
+def ver_resultado(self, j1, j2):
+        if j1 == j2: return "Empate"
+        elif (j1 == "Pedra" and j2 == "Tesoura") or (j1 == "Papel" and j2 == "Pedra") or (j1 == "Tesoura" and j2 == "Papel"):
+            return "Vitória"
+        else: return "Derrota"
+
+    def info(self, texto): tk.Label(self.janela, text=texto).pack()
+    def limpar(self): [w.destroy() for w in self.janela.winfo_children()]
+```
+
+# Para mostrar resultados usamos um método mostrar_resultados(self)
+```
+def mostrar_resultado(self):
+        r = self.ver_resultado(jogada_local, jogada_oponente)
+        if r == "Vitória": placar["vitorias"] += 1
+        elif r == "Derrota": placar["derrotas"] += 1
+        else: placar["empates"] += 1
+        self.status.config(text=f"{jogada_local} vs {jogada_oponente} => {r}\n" f"V: {placar['vitorias']} D: {placar['derrotas']} E: {placar['empates']}")
+        
+        # Botôes de revanche criados vindo do formato oferecido pela biblioteca tkinter
+        # Usamos commmand para executar uma ação depois de clicado, chamará um método (self.mostrar_jogo)
+        tk.Button(self.janela, text="Revanche", command=self.mostrar_jogo).pack(pady=3)
+        tk.Button(self.janela, text="Menu", command=self.setup_menu,).pack()
+
+# Finaliza a execução do dos widgets 
+# ==== EXECUÇÃO ====
+
+# Finalização dos widgets, loop para aquela janela poder aparecer novamente
+if __name__ == "__main__":
+    janela = tk.Tk()
+    JokenpoApp(janela)
+    janela.mainloop()
+
+
+
