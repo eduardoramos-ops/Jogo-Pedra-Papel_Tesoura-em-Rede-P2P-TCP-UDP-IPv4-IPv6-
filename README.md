@@ -120,7 +120,7 @@ def __init__(self, janela):
         tk.Button(self.janela, text="Cliente", command=self.iniciar_cliente).pack(pady=5)
 ```
 # Campos de entrada na janela
-
+```
 def input(self, texto, padrao):
         tk.Label(self.janela, text=texto).pack()
         campo = tk.Entry(self.janela)
