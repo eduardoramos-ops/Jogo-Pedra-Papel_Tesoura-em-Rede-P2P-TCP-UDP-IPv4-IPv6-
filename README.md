@@ -28,7 +28,7 @@ Concluído! Salve e use o código-fonte que estará na raiz do repositório para
 # Iniciando pelo common 
 
 # Importamos o socket da bilbioteca do python com esse comando
-````import socket```
+```import socket```
 
   #  Usando if e else para as escolhas de IP  
   ```# Versoes de Ip com AF_INET e AF_INET````
