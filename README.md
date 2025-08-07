@@ -231,3 +231,25 @@ def enviar_jogada(self, escolha):
         self.animacao.pack()
 
 ```
+```
+# Método para recebimento das jogadas por parte do cliente e servidor
+
+ def receber_jogada_cliente(self):
+        global jogada_oponente
+        try:
+            jogada_oponente = soquete.recv(1024).decode()
+            self.animar()
+        except:
+            pass
+
+    def receber_jogada_servidor(self):
+        global jogada_oponente
+        try:
+            jogada_oponente = conexao.recv(1024).decode()
+            while not jogada_local:
+                time.sleep(0.1)
+            conexao.sendall(jogada_local.encode())
+            self.animar()
+        except:
+            pass
+```
