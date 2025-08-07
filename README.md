@@ -31,7 +31,7 @@ Concluído! Salve e use o código-fonte que estará na raiz do repositório para
 ```import socket```
 
   #  Usando if e else para as escolhas de IP  
-  ```# Versoes de Ip com AF_INET e AF_INET````
+  ```# Versoes de Ip com AF_INET e AF_INET
     if versao_ip == "IPv6":
 
      familia = socket.AF_INET6 #Ipv6
@@ -40,10 +40,10 @@ Concluído! Salve e use o código-fonte que estará na raiz do repositório para
     
      familia = socket.AF_INET #IPv4
 
-
+```
  # Estrutura condicional pra comparar os tipos de protocolos escolhidos na GUI     
    
-    ````# Os protocolos que estarão futuramente no campo da GUI para escolha ````
+    ```# Os protocolos que estarão futuramente no campo da GUI para escolha ```
     if protocolo == "UDP":
    
       tipo = socket.SOCK_DGRAM # UDP
