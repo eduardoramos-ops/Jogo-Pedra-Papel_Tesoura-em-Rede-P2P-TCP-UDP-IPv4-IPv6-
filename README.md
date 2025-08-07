@@ -176,6 +176,7 @@ threading.Thread(target=self.receber_jogada_servidor, daemon=True).start()
 ```
 # Iniciando o cliente com a mesma lógica do servidor
 # Método para iniciar o cliente 
+```
     def iniciar_cliente(self):
        
         global soquete
@@ -186,12 +187,47 @@ threading.Thread(target=self.receber_jogada_servidor, daemon=True).start()
         soquete = criar_socket(self.protocolo.get(), self.ipversao.get())
         try:
             soquete.connect((ip, porta))
-# Método posterior para mostar as jogadas tanto ao cliente como ao servidor ao mesmo tempo
+# Método posterior para mostrar as jogadas tanto a ao cliente como ao servidor ao mesmo tempo
  self.mostrar_jogo()
- ```
 # Quando a threading pricipal encerrar essa encerra também(daemon tem essa função)
  threading.Thread(target=self.receber_jogada_cliente, daemon=True).start()
 # Como usamos as janelas, pode ocorrer que sobrecaregue a janela por isso usamos:
   except Exception as e:
 # Com a implementação do try, qualquer erro é comunicado. 
   self.janela.after(0, lambda: self.info(f"Erro: {e}")
+```
+# Cria-se uma método para enviar as jogadas dos oponentes
+
+def enviar_jogada(self, escolha):
+        global jogada_local
+        jogada_local = escolha
+        try:
+            if conexao:
+             conexao.sendall(escolha.encode())
+            else:
+             soquete.sendall(escolha.encode())
+        except:
+            self.status.config(text="Erro ao enviar jogada.")
+
+# Mostra as jogadas inseridas nos campos
+
+```
+# Método para mostrar jogo
+    def mostrar_jogo(self):
+        
+
+        global jogada_local, jogada_oponente
+        jogada_local = jogada_oponente = ""
+        self.limpar()
+        tk.Label(self.janela, text="Escolha sua jogada:").pack()
+        f = tk.Frame(self.janela)
+        for op in ["Pedra", "Papel", "Tesoura"]:
+            tk.Button(f, text=op, width=8, command=lambda o=op: self.enviar_jogada(o)).pack(side="left", padx=5)
+        
+        f.pack(pady=5)
+        self.status = tk.Label(self.janela, text="")
+        self.status.pack(pady=5)
+        self.animacao = tk.Label(self.janela, font=("Arial", 12))
+        self.animacao.pack()
+
+```
