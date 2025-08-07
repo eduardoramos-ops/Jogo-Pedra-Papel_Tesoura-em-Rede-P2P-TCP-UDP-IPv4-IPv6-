@@ -108,10 +108,8 @@ def __init__(self, janela):
         self.limpar()
         self.ip = self.input("IP:", "localhost")
         self.porta = self.input("Porta:", "5000")
-
-# Combobox, para o usuário clicar em itens do menu suspenso
-        self.protocolo = self.combo("Protocolo:", ["TCP", "UDP"])
-        self.ipversao = self.combo("Versão IP:", ["IPv4", "IPv6"])
+        self.protocolo = self.caixa("Protocolo:", ["TCP", "UDP"])
+        self.ipversao = self.caixa("Versão IP:", ["IPv4", "IPv6"])
 
 # Botões para iniciar como servidor ou cliente 
   # Executa o inicio de servidor e do cliente
@@ -128,7 +126,7 @@ def input(self, texto, padrao):
         campo.pack()
         return campo
 
-def combo(self, texto, opcoes):
+def caixa(self, texto, opcoes):
 # Botão com label em menu de digitação
       
         tk.Label(self.janela, text=texto).pack()
@@ -136,9 +134,9 @@ def combo(self, texto, opcoes):
         var = tk.StringVar(value=opcoes[0])
         tk.OptionMenu(self.janela, var, *opcoes).pack()
         return var
+```
 
 # !!! Nesta etapa preste muita atenção, trabalharemos o servidor/cliente
-
 ```
 # Inicializando o servidor com um método
     def iniciar_servidor(self):
