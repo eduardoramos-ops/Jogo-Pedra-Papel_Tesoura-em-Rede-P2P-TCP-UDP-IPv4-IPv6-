@@ -17,8 +17,10 @@ Nome do projeto: Pedra, Papel e Tesoura em Rede P2P (TCP/UDP, IPv4/IPv6)
 import socket
 
 
-def criar_socket(protocolo="TCP", versao_ip="IPv4"):
-    """Cria e retorna um socket configurado com protocolo e versão IP."""
+```def criar_socket(protocolo="TCP", versao_ip="IPv4"):```
+   
+ """Cria e retorna um socket configurado com protocolo e versão IP."""
+
   # Aqui serve pra comparar usando if e else as escolhas de IP  
     if versao_ip == "IPv6":
         # Modos de Ip para escolher 
