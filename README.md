@@ -89,12 +89,41 @@ def criar_socket(protocolo, ipversao):
 # ==== Interface GUI ====
 # Uma classe que serve de molde para os métodos que criaremos
 class JokenpoApp:
-
+```
 # O método para o início do código
-
-def __init__(self, root):
-        self.root = root
-        self.root.title("Jokenpô em Rede")
+```
+# Self no primerio argumento para permitir o acesso as atributos e métodos da classe
+def __init__(self, janela):
+        self.janela = janela
+        self.janela.title("Jokenpô em Rede")
         self.nome = "Você"
         self.oponente = "Oponente"
         self.setup_menu()
+```
+# Criamos o menu para as entradas
+```
+# O menu com todos os campos necessários para as entradas 
+    def setup_menu(self):
+        # Limpar toda a vez que reiniciar o widget
+        self.limpar()
+        self.ip = self.input("IP:", "localhost")
+        self.porta = self.input("Porta:", "5000")
+
+# Combobox, para o usuário clicar em itens do menu suspenso
+        self.protocolo = self.combo("Protocolo:", ["TCP", "UDP"])
+        self.ipversao = self.combo("Versão IP:", ["IPv4", "IPv6"])
+
+# Botões para iniciar como servidor ou cliente 
+  # Executa o inicio de servidor e do cliente
+        # O command é extremamente util para a requisição de que se o botão foi clicado
+        tk.Button(self.janela, text="Servidor", command=self.iniciar_servidor).pack(pady=5)
+        tk.Button(self.janela, text="Cliente", command=self.iniciar_cliente).pack(pady=5)
+```
+# Configuração de 
+def input(self, texto, padrao):
+        tk.Label(self.janela, text=texto).pack()
+        campo = tk.Entry(self.janela)
+        campo.insert(0, padrao)
+        campo.pack()
+        return campo
+
