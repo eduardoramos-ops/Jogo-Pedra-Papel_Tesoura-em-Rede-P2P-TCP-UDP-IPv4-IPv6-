@@ -230,10 +230,8 @@ def enviar_jogada(self, escolha):
         self.animacao = tk.Label(self.janela, font=("Arial", 12))
         self.animacao.pack()
 
-```
-```
 # Método para recebimento das jogadas por parte do cliente e servidor
-
+```
  def receber_jogada_cliente(self):
         global jogada_oponente
         try:
