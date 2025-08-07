@@ -136,7 +136,7 @@ def combo(self, texto, opcoes):
         var = tk.StringVar(value=opcoes[0])
         tk.OptionMenu(self.janela, var, *opcoes).pack()
         return var
-```
+
 # !!! Nesta etapa preste muita atenção, trabalharemos o servidor/cliente
 
 ```
@@ -174,8 +174,6 @@ threading.Thread(target=self.receber_jogada_servidor, daemon=True).start()
 
 ```
 # Iniciando o cliente com a mesma lógica do servidor
-
-```
 # Método para iniciar o cliente 
     def iniciar_cliente(self):
        
