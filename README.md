@@ -43,7 +43,7 @@ Concluído! Salve e use o código-fonte que estará na raiz do repositório para
 ```
  # Estrutura condicional pra comparar os tipos de protocolos escolhidos na GUI     
    
-    ```# Os protocolos que estarão futuramente no campo da GUI para escolha ```
+    # Os protocolos que estarão futuramente no campo da GUI para escolha 
     if protocolo == "UDP":
    
       tipo = socket.SOCK_DGRAM # UDP
