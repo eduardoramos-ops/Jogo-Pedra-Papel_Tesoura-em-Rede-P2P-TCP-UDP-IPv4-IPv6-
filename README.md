@@ -15,7 +15,7 @@ Instale ele caso não tenha em seu Pc.
 <br>
 Instale o python no seu Pc caso não o tenha instalado.
 <br>
-Abra o code studio e instale o python e sua extensão.
+Abra o code studio e instale o python 3.15 e sua extensão.
 <br>
 Após efetuar essas etapas, vá em file e clique em open folder e abra o arquivo criado (JOGOPPT).
 <br>
@@ -28,10 +28,10 @@ Concluído! Salve e use o código-fonte que estará na raiz do repositório para
 # Iniciando pelo common 
 
 # Importamos o socket da bilbioteca do python com esse comando
-import socket
+````import socket```
 
   #  Usando if e else para as escolhas de IP  
-  ``` # Versoes de Ip com AF_INET e AF_INET````
+  ```# Versoes de Ip com AF_INET e AF_INET````
     if versao_ip == "IPv6":
 
      familia = socket.AF_INET6 #Ipv6
