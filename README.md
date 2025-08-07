@@ -298,7 +298,7 @@ def mostrar_resultado(self):
         tk.Button(self.janela, text="Menu", command=self.setup_menu,).pack()
 
 # Finaliza a execução do dos widgets 
-```
+
 # ==== EXECUÇÃO ====
 
 # Finalização dos widgets, loop para aquela janela poder aparecer novamente
