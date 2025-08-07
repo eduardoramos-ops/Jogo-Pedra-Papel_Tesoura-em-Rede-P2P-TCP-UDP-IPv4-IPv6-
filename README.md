@@ -85,11 +85,10 @@ def criar_socket(protocolo, ipversao):
     return socket.socket(familia, tipo)
 ```
 # A classe molde dos métodos
-
 ```
 # ==== Interface GUI ====
 # Uma classe que serve de molde para os métodos que criaremos
-class JokenpoApp:```
+class JokenpoApp:
 
 # O método para o início do código
 
