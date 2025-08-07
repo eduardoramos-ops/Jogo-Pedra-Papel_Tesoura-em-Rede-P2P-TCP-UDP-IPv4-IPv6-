@@ -1,22 +1,39 @@
 # Jogo-Pedra-Papel_Tesoura-em-Rede-P2P-TCP-UDP-IPv4-IPv6-
 Nome do projeto: Pedra, Papel e Tesoura em Rede P2P (TCP/UDP, IPv4/IPv6).
 Esse projeto tem como objetivo atender ao critério de lógica e comunicação P2P implementado no python de forma simples, proporcionando uma maneira visual e interativa os conceitos de Redes de Computadores e programação back-end.
-É important ressaltar que se uma das etapas não forem efetuadas, é provável que o projeto não execute de forma eficiente e/ou agradável. 
+É importante ressaltar que se uma das etapas não forem efetuadas, é provável que o projeto não execute de forma eficiente e/ou agradável. 
 
 
 
-# Vamos iniciar: Importamos o socket para que tudo dê certo
+# Vamos iniciar com a documentação para que você acompanhe bem o projeto
+No gerenciador do seu Pc, crie uma pasta chamada JOGOPPT.
+Salve preferencialmente no seu drive.
+
+# Usaremos o editor de código Visual Code Studio
+
+Instale ele caso não tenha em seu Pc.
+<br>
+Instale o python no seu Pc caso não o tenha instalado.
+<br>
+Abra o code studio e instale o python e sua extensão.
+<br>
+Após efetuar essas etapas, vá em file e clique em open folder e abra o arquivo criado (JOGOPPT).
+<br>
+Dentro dele crie dois file, um chamado common e outro chamado main. Use a terminação .py após o nome do arquivos sem espaço.
+<br>
+Concluído! Salve e use o código-fonte que estará na raiz do repositório para o projeto funcionar.
+<br>
+
+# Vamos iniciar o projeto
+# Iniciando pelo common 
+
+# Importamos o socket da bilbioteca do python com esse comando
 import socket
 
-
-```def criar_socket(protocolo="TCP", versao_ip="IPv4"):```
-   
- """Cria e retorna um socket configurado com protocolo e versão IP."""
-
-  # Aqui serve pra comparar usando if e else as escolhas de IP  
+  #  Usando if e else para as escolhas de IP  
+  ``` # Versoes de Ip com AF_INET e AF_INET````
     if versao_ip == "IPv6":
-        # Modos de Ip para escolher 
-     
+
      familia = socket.AF_INET6 #Ipv6
     
     else:
@@ -25,6 +42,8 @@ import socket
 
 
  # Estrutura condicional pra comparar os tipos de protocolos escolhidos na GUI     
+   
+    ````# Os protocolos que estarão futuramente no campo da GUI para escolha ````
     if protocolo == "UDP":
    
       tipo = socket.SOCK_DGRAM # UDP
