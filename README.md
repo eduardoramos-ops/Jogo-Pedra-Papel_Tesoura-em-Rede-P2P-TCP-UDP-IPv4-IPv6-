@@ -51,24 +51,16 @@ def criar_socket(protocolo="TCP", versao_ip="IPv4"):
 #Nós importamos do próprio python comandos e a biblioteca tkinter, sendo ela quem gera os widgets.
 
 
-# Importamos a biblioteca do python e para menos texto chamamos o módulo de tk
-import tkinter as tk 
 
- # Importa do tkinter os widgets mais modernos
+```import tkinter as tk # Importamos a biblioteca do python e para menos texto chamamos o módulo de tk 
 
-from tkinter import ttk
+from tkinter import ttk # Importa do tkinter os wWdgets mais modernos
 
- # Otimiza o código para não ocorrer travamento
+import threading  # Otimiza o código para não ocorrer travamento
 
-import threading
+import socket #  Importação do socket para criar as conexões de rede (Cliente/Servidor)
 
-#  Importação do socket para criar as conexões de rede (Cliente/Servidor)
-import socket
+import time # Futuramente implementá-lo para fazer com que o código tenha pausas
 
- # Futuramente implementá-lo para fazer com que o código tenha pausas
-
-import time
-
- # Importa função para criar socket TCP/UDP
-
-from common import criar_socket
+from common import criar_socket  # Importa função para criar socket TCP/UDP
+```
