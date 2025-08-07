@@ -89,6 +89,13 @@ def criar_socket(protocolo, ipversao):
 ```
 # ==== Interface GUI ====
 # Uma classe que serve de molde para os métodos que criaremos
-class JokenpoApp:
+class JokenpoApp:```
 
-```
+# O método para o início do código
+
+def __init__(self, root):
+        self.root = root
+        self.root.title("Jokenpô em Rede")
+        self.nome = "Você"
+        self.oponente = "Oponente"
+        self.setup_menu()
