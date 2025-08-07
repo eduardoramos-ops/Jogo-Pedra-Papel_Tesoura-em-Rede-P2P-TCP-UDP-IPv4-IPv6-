@@ -44,11 +44,11 @@ def criar_socket(protocolo="TCP", versao_ip="IPv4"):
 
 
 
-#Vamos a estrutura da nossa GUI (interface gráfica) do nosso projeto
+# Vamos a estrutura da nossa GUI (interface gráfica) do nosso projeto
 
 
 
-#Nós importamos do próprio python comandos e a biblioteca tkinter, sendo ela quem gera os widgets.
+# Nós importamos do próprio python comandos e a biblioteca tkinter, sendo ela quem gera os widgets.
 
 
 
