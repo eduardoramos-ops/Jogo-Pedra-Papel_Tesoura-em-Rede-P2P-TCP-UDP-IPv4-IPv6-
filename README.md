@@ -170,8 +170,9 @@ def combo(self, texto, opcoes):
 
 # Quando a threading pricipal encerrar essa encerra também(daemon tem essa função)
 # Pesquise a fucionalidade para que você entenda bem a estrutura do código
-threading.Thread(target=self.receber_jogada_servidor, daemon=True).start()
+```
 
+threading.Thread(target=self.receber_jogada_servidor, daemon=True).start()
 ```
 # Iniciando o cliente com a mesma lógica do servidor
 # Método para iniciar o cliente 
@@ -190,7 +191,7 @@ threading.Thread(target=self.receber_jogada_servidor, daemon=True).start()
  ```
 # Quando a threading pricipal encerrar essa encerra também(daemon tem essa função)
  threading.Thread(target=self.receber_jogada_cliente, daemon=True).start()
-# Como usamos as janelas, pode ocorer que sorbecaregue ajanela por isso usamos:
+# Como usamos as janelas, pode ocorrer que sobrecaregue a janela por isso usamos:
   except Exception as e:
 # Com a implementação do try, qualquer erro é comunicado. 
-    self.janela.after(0, lambda: self.info(f"Erro: {e}")
+  self.janela.after(0, lambda: self.info(f"Erro: {e}")
