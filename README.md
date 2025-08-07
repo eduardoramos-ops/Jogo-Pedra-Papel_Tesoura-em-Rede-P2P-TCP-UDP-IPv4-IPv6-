@@ -119,7 +119,7 @@ def __init__(self, janela):
         tk.Button(self.janela, text="Servidor", command=self.iniciar_servidor).pack(pady=5)
         tk.Button(self.janela, text="Cliente", command=self.iniciar_cliente).pack(pady=5)
 ```
-#Campos de entrada na janela
+# Campos de entrada na janela
 
 def input(self, texto, padrao):
         tk.Label(self.janela, text=texto).pack()
@@ -166,11 +166,11 @@ def combo(self, texto, opcoes):
         global conexao
         conexao, _ = soquete.accept()
         self.mostrar_jogo()
-         # Linha de execução paralela as execuções ja concebidas com threading
+        # Linha de execução paralela às execuções ja concebidas com threading
 
-#Quando a threading pricipal encerrar essa encerra também(daemon tem essa função)
+# Quando a threading pricipal encerrar essa encerra também(daemon tem essa função)
 # Pesquise a fucionalidade para que você entenda bem a estrutura do código
-        threading.Thread(target=self.receber_jogada_servidor, daemon=True).start()
+threading.Thread(target=self.receber_jogada_servidor, daemon=True).start()
 
 ```
 # Iniciando o cliente com a mesma lógica do servidor
