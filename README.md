@@ -196,8 +196,8 @@ threading.Thread(target=self.receber_jogada_servidor, daemon=True).start()
 # Com a implementação do try, qualquer erro é comunicado. 
   self.janela.after(0, lambda: self.info(f"Erro: {e}")
 ```
-# Cria-se uma método para enviar as jogadas dos oponentes
-
+# Cria-se um método para enviar as jogadas dos oponentes
+```
 def enviar_jogada(self, escolha):
         global jogada_local
         jogada_local = escolha
