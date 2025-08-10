@@ -171,7 +171,6 @@ def caixa(self, texto, opcoes):
 ```
 
 threading.Thread(target=self.receber_jogada_servidor, daemon=True).start()
-```
 # Iniciando o cliente com a mesma lógica do servidor
 # Método para iniciar o cliente 
 ```
