@@ -304,7 +304,6 @@ def mostrar_resultado(self):
 # ==== EXECUÇÃO ====
 
 #Finalização dos widgets, loop para aquela janela poder aparecer novamente
-```
 if __name__ == "__main__":
     janela = tk.Tk()
     JokenpoApp(janela)
