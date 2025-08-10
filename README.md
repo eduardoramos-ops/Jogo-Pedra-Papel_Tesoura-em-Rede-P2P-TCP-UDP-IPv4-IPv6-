@@ -168,9 +168,10 @@ def caixa(self, texto, opcoes):
 
 # Quando a threading pricipal encerrar essa encerra também(daemon tem essa função)
 # Pesquise a fucionalidade para que você entenda bem a estrutura do código
-```
 
 threading.Thread(target=self.receber_jogada_servidor, daemon=True).start()
+
+```
 # Iniciando o cliente com a mesma lógica do servidor
 # Método para iniciar o cliente 
 ```
