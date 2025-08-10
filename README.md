@@ -1,5 +1,5 @@
 # Jogo-Pedra-Papel_Tesoura-em-Rede-P2P-TCP-UDP-IPv4-IPv6-
-Nome do projeto: Pedra, Papel e Tesoura em Rede P2P (TCP/UDP, IPv4/IPv6).
+Nome do projeto: Pedra, Papel e Tesoura em Rede P2P com suporte a comunicação (TCP/UDP, IPv4/IPv6).
 Esse projeto tem como objetivo atender ao critério de lógica e comunicação P2P implementado no python de forma simples, proporcionando uma maneira visual e interativa os conceitos de Redes de Computadores e programação back-end.
 É importante ressaltar que se uma das etapas não forem efetuadas, é provável que o projeto não execute de forma eficiente e/ou agradável. 
 
@@ -25,9 +25,9 @@ Concluído! Salve e use o código-fonte que estará na raiz do repositório para
 <br>
 
 # Vamos iniciar o projeto
-# Iniciando pelo common 
+# Iniciando pelo common, que é o fornecedor das comunicações TCP/UDP e IPv6/IPv4.
 
-# Importamos o socket da bilbioteca do python com esse comando
+# Importamos o socket da bilbioteca do python com esse comando na área de código 
 ```import socket```
 
   #  Usando if e else para as escolhas de IP  
@@ -68,7 +68,7 @@ from common import criar_socket  # Importa função para criar socket TCP/UDP
 ```
 
 # Vamos as variáveis.
-```Criamos variáveis globais, poid serão utilizadas por muitas partes do códigp
+```Criamos variáveis globais, pois serão utilizadas não métodos dentro da classe no código 
 
 # Variáveis globais
 # Nenhum nalor definido ainda, então o None indica isso. 
@@ -86,13 +86,15 @@ def criar_socket(protocolo, ipversao):
 ```
 # A classe molde dos métodos
 ```
-# ==== Interface GUI ====
-# Uma classe que serve de molde para os métodos que criaremos
+# Interface GUI 
+# Uma classe que serve de molde para os métodos que criaremos, temos aqui o mesmo conceito na linguagem java
+
 class JokenpoApp:
 ```
 # O método para o início do código
 ```
-# Self no primerio argumento para permitir o acesso as atributos e métodos da classe
+# Self no primerio argumento para permitir o acesso as atributos e métodos da classe, para referenciar eles em outras instâncias
+
 def __init__(self, janela):
         self.janela = janela
         self.janela.title("Jokenpô em Rede")
@@ -113,7 +115,7 @@ def __init__(self, janela):
 
 # Botões para iniciar como servidor ou cliente 
   # Executa o inicio de servidor e do cliente
-        # O command é extremamente util para a requisição de que se o botão foi clicado
+        # O command é extremamente util para a requisição de que se o botão foi clicado executar uma ação, no caso chamar uma função/método
         tk.Button(self.janela, text="Servidor", command=self.iniciar_servidor).pack(pady=5)
         tk.Button(self.janela, text="Cliente", command=self.iniciar_cliente).pack(pady=5)
 ```
@@ -127,10 +129,10 @@ def input(self, texto, padrao):
         return campo
 
 def caixa(self, texto, opcoes):
-# Botão com label em menu de digitação
+# Botão com label em menu de digitação, para que o usuário saiba qual botão é servidor e qual é cliente
       
         tk.Label(self.janela, text=texto).pack()
-        # Verificação de valores na lista sa StrinVar
+        # Verificação de valores na lista da StrinVar
         var = tk.StringVar(value=opcoes[0])
         tk.OptionMenu(self.janela, var, *opcoes).pack()
         return var
