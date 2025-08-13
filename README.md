@@ -93,7 +93,6 @@ class JokenpoApp:
 ```
 # Self no primerio argumento para permitir o acesso as atributos e métodos da classe, para referenciar eles em outras instâncias
 
-class JokenpoApp:
     def __init__(self, janela):
         self.janela = janela
         self.janela.title("Jokenpô em Rede")
