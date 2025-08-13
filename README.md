@@ -63,8 +63,6 @@ Concluído! Salve e use o código-fonte que estará na raiz do repositório para
 ```import tkinter as tk # Importamos a biblioteca do python e para menos texto chamamos o módulo de tk 
 import threading  # Otimiza o código para não ocorrer travamento
 import socket #  Importação do socket para criar as conexões de rede (Cliente/Servidor)
-import time # Futuramente implementá-lo para fazer com que o código tenha pausas
-from common import criar_socket  # Importa função para criar socket TCP/UDP
 ```
 
 # Vamos as variáveis.
@@ -95,23 +93,31 @@ class JokenpoApp:
 ```
 # Self no primerio argumento para permitir o acesso as atributos e métodos da classe, para referenciar eles em outras instâncias
 
-def __init__(self, janela):
+class JokenpoApp:
+    def __init__(self, janela):
         self.janela = janela
         self.janela.title("Jokenpô em Rede")
-        self.nome = "Você"
-        self.oponente = "Oponente"
-        self.setup_menu()
+        self.janela.geometry("300x400")
 ```
 # Criamos o menu para as entradas
 ```
 # O menu com todos os campos necessários para as entradas 
-    def setup_menu(self):
-        # Limpar toda a vez que reiniciar o widget
+        def aparecer_menu(self):
         self.limpar()
-        self.ip = self.input("IP:", "localhost")
+        self.ip = self.input("IP:", "0.0.0.0")
         self.porta = self.input("Porta:", "5000")
-        self.protocolo = self.caixa("Protocolo:", ["TCP", "UDP"])
-        self.ipversao = self.caixa("Versão IP:", ["IPv4", "IPv6"])
+
+        # Escolher protocolo TCP/UDP
+        self.protocolo_var = tk.StringVar(value="TCP")
+        tk.Label(self.janela, text="Protocolo:").pack()
+        tk.OptionMenu(self.janela, self.protocolo_var, "TCP", "UDP").pack()
+
+        # Escolher entre IPv4/IPv6
+        # StringVar permite que os valores digitados sejam atualizados, por conta das opções de escolha que há para cada instância
+        self.ipversao_var = tk.StringVar(value="IPv4")
+        # Label é o texto que fica nos campos de digitação
+        tk.Label(self.janela, text="Versão IP:").pack()
+        tk.OptionMenu(self.janela, self.ipversao_var, "IPv4", "IPv6").pack(
 
 # Botões para iniciar como servidor ou cliente 
   # Executa o inicio de servidor e do cliente
